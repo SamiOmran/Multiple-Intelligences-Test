@@ -102,7 +102,7 @@ document.getElementById('intelligenceForm').addEventListener('submit', function(
     }
 
     // Adding the summation row at the end
-    table += '<tr class="sum-row"><td>Sum</td>';
+    table += '<tr class="sum-row"><td>المجموع</td>';
     sectionSums.forEach(sum => {
         table += `<td>${sum}</td>`;
     });
