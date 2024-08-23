@@ -130,3 +130,10 @@ button:hover {
 .result-table td {
     background-color: #fff;
 }
+
+/* Style for the summation row */
+.result-table .sum-row {
+    font-weight: bold;
+    background-color: #f9f9f9;
+    color: #333;
+}

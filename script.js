@@ -35,7 +35,7 @@ function createFormSections(questions) {
         questions[section].forEach((question, branchIndex) => {
             let row = document.createElement('tr');
             row.innerHTML = `
-                <td><input type="radio" name="section${sectionIndex}_branch${branchIndex + 1}" value="0" required></td>
+                <td><input type="radio" name="section${sectionIndex}_branch${branchIndex + 1}" value="0" checked required></td>
                 <td><input type="radio" name="section${sectionIndex}_branch${branchIndex + 1}" value="1" required></td>
                 <td><input type="radio" name="section${sectionIndex}_branch${branchIndex + 1}" value="2" required></td>
                 <td><input type="radio" name="section${sectionIndex}_branch${branchIndex + 1}" value="3" required></td>
@@ -72,11 +72,27 @@ document.getElementById('intelligenceForm').addEventListener('submit', function(
         }
     }
 
+    // Calculate the summation for each section
+    let sectionSums = Array(10).fill(0);
+    for (let branch in results) {
+        results[branch].forEach((score, index) => {
+            sectionSums[index] += score;
+        });
+    }
+
+    const sections = ['أولًا', 'ثانيًا', 'ثالثًا', 'رابعًا', 'خامسًا', 'سادسًا', 'سابعًا', 'ثامنًا', 'تاسعًا', 'عاشرًا']
     // Display the results in a table
     let resultDiv = document.getElementById('result');
     resultDiv.innerHTML = '<h3>Results</h3>';
-    let table = '<table class="result-table"><tr><th>Branch</th><th>Section 1</th><th>Section 2</th><th>Section 3</th><th>Section 4</th><th>Section 5</th><th>Section 6</th><th>Section 7</th><th>Section 8</th><th>Section 9</th><th>Section 10</th></tr>';
+    let table = '<table class="result-table"><tr><th>الذكاء</th>';
+    
+    // Adding section headers to the first row
+    for (let i = 9; i >= 0; i--) {
+        table += `<th>${sections[i]}</th>`;
+    }
+    table += '</tr>';
 
+    // Adding branches in the first column and scores in subsequent columns
     for (let branch in results) {
         table += `<tr><td>${branch}</td>`;
         results[branch].forEach(score => {
@@ -84,6 +100,13 @@ document.getElementById('intelligenceForm').addEventListener('submit', function(
         });
         table += '</tr>';
     }
+
+    // Adding the summation row at the end
+    table += '<tr class="sum-row"><td>Sum</td>';
+    sectionSums.forEach(sum => {
+        table += `<td>${sum}</td>`;
+    });
+    table += '</tr>';
 
     table += '</table>';
     resultDiv.innerHTML += table;
