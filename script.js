@@ -86,14 +86,14 @@ document.getElementById('intelligenceForm').addEventListener('submit', function(
     const sections = ['أولًا', 'ثانيًا', 'ثالثًا', 'رابعًا', 'خامسًا', 'سادسًا', 'سابعًا', 'ثامنًا', 'تاسعًا', 'عاشرًا']
     // Display the results in a table
     let resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = '<h3>Results</h3>';
+    resultDiv.innerHTML = '<h1 class="result-heading">المجموع</h1>';
     let table = '<table class="result-table"><tr><th>الذكاء</th>';
     
     // Adding section headers to the first row
     for (let i = 0; i <= 9; i++) {
         table += `<th>${sections[i]}</th>`;
     }
-    table += '<th>Total</th></tr>'; // Adding a Total column
+    table += '<th id="sum-col">المجموع</th></tr>'; // Adding a Total column
 
     // Adding indexes in the first column and scores in subsequent columns
     for (let index in results) {
@@ -101,7 +101,7 @@ document.getElementById('intelligenceForm').addEventListener('submit', function(
         results[index].forEach(score => {
             table += `<td>${score}</td>`;
         });
-        table += `<td>${branchSums[index]}</td></tr>`; // Adding the total sum for each branch
+        table += `<td class="branch-sum">${branchSums[index]}</td></tr>`; // Adding the total sum for each branch
     }
 
     table += '</table>';

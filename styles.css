@@ -1,6 +1,7 @@
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
+    font-weight: bolder;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
@@ -9,7 +10,7 @@ body {
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #ace9ff, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
-    height: 100vh;
+    height: 100%;
 }
 
 .logo-container {
@@ -52,10 +53,6 @@ h2,h1 {
     font-weight: bolder;
     color: black;
 }
-
-/* thead {
-    background-color:#23a6d5;
-} */
 
 /* Table Styles */
 .question-table {
@@ -127,10 +124,12 @@ button:hover {
 /* Result Styles */
 #result {
     margin-top: 40px;
+    color: #333;
 }
 
-#result h3 {
-    color: #333;
+.result-heading {
+    text-align: center;
+    font-weight: bolder;
 }
 
 .result-table {
@@ -158,9 +157,16 @@ button:hover {
 }
 
 /* Style for the summation row */
-.result-table .sum-row {
+.result-table {
     font-weight: bold;
     background-color: #f9f9f9;
     color: #333;
 }
 
+#sum-col {
+    background-color:#a3ffbc;
+}
+
+td.branch-sum {
+    background-color:#dbffe5;
+}
