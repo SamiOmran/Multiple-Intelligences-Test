@@ -6,6 +6,11 @@ body {
     background-color: #f9f9f9;
     color: #333;
     line-height: 1.6;
+
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
 }
 
 .container {
@@ -22,6 +27,7 @@ h2,h1 {
     text-align: center;
     color: #4CAF50;
     margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Section Styles */
@@ -35,6 +41,10 @@ h2,h1 {
     font-weight: bolder;
     color: black;
 }
+
+/* thead {
+    background-color:#23a6d5;
+} */
 
 /* Table Styles */
 .question-table {
@@ -52,7 +62,7 @@ h2,h1 {
 }
 
 .question-table th {
-    background-color: #f2f2f2;
+    background-color: #23a6d5;
     color: #333;
     font-weight: bold;
     text-transform: uppercase;
@@ -74,6 +84,11 @@ h2,h1 {
 .question-table th:not(:last-child),
 .question-table td:not(:last-child) {
     width: 8%;
+}
+
+td.indexing {
+    font-weight: bolder;
+    background-color:#45a049
 }
 
 input[type="radio"] {
@@ -137,3 +152,4 @@ button:hover {
     background-color: #f9f9f9;
     color: #333;
 }
+

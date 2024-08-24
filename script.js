@@ -31,6 +31,8 @@ function createFormSections(questions) {
             </tbody>
         `;
 
+        const indexes = ['أ', 'ب', 'ج', 'د', 'ه', 'و']
+        let i = 0;
         // Add the questions as rows in the table
         questions[section].forEach((question, branchIndex) => {
             let row = document.createElement('tr');
@@ -41,8 +43,10 @@ function createFormSections(questions) {
                 <td><input type="radio" name="section${sectionIndex}_branch${branchIndex + 1}" value="3" required></td>
                 <td><input type="radio" name="section${sectionIndex}_branch${branchIndex + 1}" value="4" required></td>
                 <td class="question">${question}</td>
+                <td class="indexing">${indexes[i]}</td>
             `;
             table.querySelector('tbody').appendChild(row);
+            i++;
         });
 
         sectionDiv.appendChild(table);
@@ -57,27 +61,26 @@ document.getElementById('intelligenceForm').addEventListener('submit', function(
     let form = e.target;
     let formData = new FormData(form);
     let results = {};
-
+    const indexes = ['أ', 'ب', 'ج', 'د', 'ه', 'و']
     // Initialize the results object with keys for each branch
-    for (let branch = 1; branch <= 6; branch++) {
-        results[`Branch ${branch}`] = [];
+    for (let i = 0; i <= 5; i++) {
+        results[indexes[i]] = [];
     }
-
+    
     // Aggregate the scores for each branch across all sections
     for (let [key, value] of formData.entries()) {
         let branchMatch = key.match(/branch(\d+)/);
         if (branchMatch) {
-            let branch = `Branch ${branchMatch[1]}`;
-            results[branch].push(parseInt(value));
+            let branchIndex = parseInt(branchMatch[1]) - 1;
+            let index = indexes[branchIndex];
+            results[index].push(parseInt(value));
         }
     }
 
-    // Calculate the summation for each section
-    let sectionSums = Array(10).fill(0);
-    for (let branch in results) {
-        results[branch].forEach((score, index) => {
-            sectionSums[index] += score;
-        });
+    // Calculate the summation for each branch
+    let branchSums = {};
+    for (let index in results) {
+        branchSums[index] = results[index].reduce((acc, score) => acc + score, 0);
     }
 
     const sections = ['أولًا', 'ثانيًا', 'ثالثًا', 'رابعًا', 'خامسًا', 'سادسًا', 'سابعًا', 'ثامنًا', 'تاسعًا', 'عاشرًا']
@@ -87,26 +90,19 @@ document.getElementById('intelligenceForm').addEventListener('submit', function(
     let table = '<table class="result-table"><tr><th>الذكاء</th>';
     
     // Adding section headers to the first row
-    for (let i = 9; i >= 0; i--) {
+    for (let i = 0; i <= 9; i++) {
         table += `<th>${sections[i]}</th>`;
     }
-    table += '</tr>';
+    table += '<th>Total</th></tr>'; // Adding a Total column
 
-    // Adding branches in the first column and scores in subsequent columns
-    for (let branch in results) {
-        table += `<tr><td>${branch}</td>`;
-        results[branch].forEach(score => {
+    // Adding indexes in the first column and scores in subsequent columns
+    for (let index in results) {
+        table += `<tr><td>${index}</td>`;
+        results[index].forEach(score => {
             table += `<td>${score}</td>`;
         });
-        table += '</tr>';
+        table += `<td>${branchSums[index]}</td></tr>`; // Adding the total sum for each branch
     }
-
-    // Adding the summation row at the end
-    table += '<tr class="sum-row"><td>المجموع</td>';
-    sectionSums.forEach(sum => {
-        table += `<td>${sum}</td>`;
-    });
-    table += '</tr>';
 
     table += '</table>';
     resultDiv.innerHTML += table;
