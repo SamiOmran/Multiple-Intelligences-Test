@@ -43,28 +43,33 @@ body {
 }
 
 #teacherName {
-    width: 47%;
-    padding: 10px;
-    margin-bottom: 2%;
-    margin-left: 40%;
-    margin: 0 0 2% 25%;
-    font-size: 16px;
-    text-align: right;
+	width: 47%;
+	padding: 10px;
+	margin-bottom: 2%;
+	margin-left: 40%;
+	margin: 0 0 2% 25%;
+	font-size: 16px;
+	text-align: right;
 }
 
 #startTestButton {
-    width: 50%;
-    padding: 10px 20px;
-    margin: 0 0 0 25%;
-    font-size: larger;
-	background: rgb(40,40,255);
-    background: linear-gradient(90deg, rgba(40,40,255,1) 0%, rgba(215,183,114,1) 0%, rgba(254,240,65,1) 68%);
-    border: none;
-    cursor: pointer;
+	width: 50%;
+	padding: 10px 20px;
+	margin: 0 0 0 25%;
+	font-size: larger;
+	background: rgb(40, 40, 255);
+	background: linear-gradient(
+		90deg,
+		rgba(40, 40, 255, 1) 0%,
+		rgba(215, 183, 114, 1) 0%,
+		rgba(254, 240, 65, 1) 68%
+	);
+	border: none;
+	cursor: pointer;
 }
 
 #startTestButton:hover {
-    background-color: #45a049;
+	background-color: #45a049;
 }
 
 /* Header Styles */
@@ -150,8 +155,7 @@ tr:nth-child(odd) {
 td.indexing {
 	font-weight: bolder;
 	background-color: #45a049;
-    font-size: larger;
-
+	font-size: larger;
 }
 
 input[type='radio'] {
