@@ -14,14 +14,19 @@
 		</div>
 		<div class="container">
 			<h1>إختبار الذكاءات المتعددة</h1>
-			<form id="intelligenceForm">
+			<!-- Teacher Name Input -->
+			<div class="teacher-name-container">
+				<input type="text" id="teacherName" placeholder="اسم المدرس">
+				<button id="startTestButton">بدء الإمتحان</button>
+			</div>
+			<form id="intelligenceForm" netlify style="display: none;">
 				<!-- Sections will be dynamically added here -->
 				<div id="form-sections"></div>
 				<button type="submit">إحسب</button>
 			</form>
 
 			<div id="result"></div>
-			<div class="chart-container">
+			<div class="chart-container" style="display: none;">
 				<canvas id="resultsChart"></canvas>
 			</div>
 
