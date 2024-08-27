@@ -4,19 +4,19 @@ fetch('questions.json')
 	.then((data) => createFormSections(data))
 	.catch((error) => console.error('Error loading the JSON file:', error));
 
-document
-	.getElementById('startTestButton')
-	.addEventListener('click', function () {
-		let teacherName = document.getElementById('teacherName').value.trim();
+// document
+// 	.getElementById('startTestButton')
+// 	.addEventListener('click', function () {
+// 		let teacherName = document.getElementById('teacherName').value.trim();
 
-		if (! teacherName) {
-			alert('الرجاء إدخال الإسم حتى تبدئي الإمتحان.');
-		} else {
-			document.getElementById('sami').style.display = 'block';
-			document.querySelector('.chart-container').style.display = 'block';
-			document.querySelector('.teacher-name-container').style.display = 'none';
-		}
-	});
+// 		if (! teacherName) {
+// 			alert('الرجاء إدخال الإسم حتى تبدئي الإمتحان.');
+// 		} else {
+// 			document.getElementById('sami').style.display = 'block';
+// 			document.querySelector('.chart-container').style.display = 'block';
+// 			document.querySelector('.teacher-name-container').style.display = 'none';
+// 		}
+// 	});
 
 // Function to create the form sections and branches in a table format
 function createFormSections(questions) {
