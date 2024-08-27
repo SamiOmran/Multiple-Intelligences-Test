@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>إختبار الذكاءات المتعددة</title>
 		<link rel="stylesheet" href="styles.css" />
 	</head>
+
 	<body>
 		<div class="logo-container">
 			<img src="logo.png" alt="Logo" class="logo" />
@@ -15,12 +17,20 @@
 			<form id="intelligenceForm">
 				<!-- Sections will be dynamically added here -->
 				<div id="form-sections"></div>
-				<button type="submit">Submit</button>
+				<button type="submit">إحسب</button>
 			</form>
 
 			<div id="result"></div>
+			<div class="chart-container">
+				<canvas id="resultsChart"></canvas>
+			</div>
+
+			<!-- Include Chart.js Library -->
+			<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 		</div>
 
 		<script src="script.js"></script>
 	</body>
+
 </html>
