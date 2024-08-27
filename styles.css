@@ -55,7 +55,7 @@ body {
 #startTestButton {
     width: 50%;
     padding: 10px 20px;
-    margin: auto;
+    margin: 0 0 0 25%;
     font-size: larger;
 	background: rgb(40,40,255);
     background: linear-gradient(90deg, rgba(40,40,255,1) 0%, rgba(215,183,114,1) 0%, rgba(254,240,65,1) 68%);
