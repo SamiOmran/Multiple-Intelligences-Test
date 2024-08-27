@@ -9,10 +9,10 @@ document
 	.addEventListener('click', function () {
 		let teacherName = document.getElementById('teacherName').value.trim();
 
-		if (teacherName === '') {
+		if (! teacherName) {
 			alert('الرجاء إدخال الإسم حتى تبدئي الإمتحان.');
 		} else {
-			document.getElementById('intelligenceForm').style.display = 'block';
+			document.getElementById('sami').style.display = 'block';
 			document.querySelector('.chart-container').style.display = 'block';
 			document.querySelector('.teacher-name-container').style.display = 'none';
 		}
