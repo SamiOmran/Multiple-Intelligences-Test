@@ -121,11 +121,14 @@ document
 		let data = { teacherName, results: branchSums };
 
 		try {
-			let response = await fetch('http://localhost:5000/api/results', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(data),
-			});
+			let response = await fetch(
+				'https://multiple-intelligences-test.vercel.app/api/results',
+				{
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(data),
+				}
+			);
 		} catch (error) {
 			console.error('Error:', error);
 			alert('An error occurred while saving the results');

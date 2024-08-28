@@ -7,7 +7,9 @@ window.addEventListener('updateResults', function (event) {
 
 async function fetchResults() {
 	try {
-		let response = await fetch('http://localhost:5000/api/results');
+		let response = await fetch(
+			'https://multiple-intelligences-test.vercel.app//api/results'
+		);
 		let results = await response.json();
 
 		displayResults(results);
