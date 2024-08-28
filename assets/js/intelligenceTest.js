@@ -126,11 +126,6 @@ document
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(data),
 			});
-
-			if (response.ok) {
-				alert('تم تخزين الرد');
-				updateResults();
-			}
 		} catch (error) {
 			console.error('Error:', error);
 			alert('An error occurred while saving the results');

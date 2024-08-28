@@ -4,10 +4,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
+const path = require('path');
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/assets', express.static(__dirname + '/assets'));
 
 // Endpoint to store results
 app.post('/api/results', async (req, res) => {
@@ -33,6 +35,10 @@ app.get('/api/results/', async (req, res) => {
 		res.status(500).json({ message: error.message });
 	}
 });
+
+app.get('/results', (req, res) => {	
+	res.sendFile(path.join(__dirname, './static/results.html'));
+})
 
 // Start the server
 const PORT = process.env.PORT || 5000;
