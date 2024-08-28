@@ -14,19 +14,19 @@
 		</div>
 		<div class="container">
 			<h1>إختبار الذكاءات المتعددة</h1>
-			<form method="POST" action="/success" id="intelligenceForm" data-netlify="true" name="intelligenceForm">
-				<!-- Teacher Name Input
+			<form method="POST" id="intelligenceForm" data-netlify="true" name="intelligenceForm">
+				<!-- Teacher Name Input -->
 				<div class="teacher-name-container">
 					<input type="text" id="teacherName" placeholder="اسم المدرس">
 					<br>
-					<input id="startTestButton" name="name" type="button" value="بدء الإمتحان" />
-				</div> -->
+					<button id="startTestButton" name="name" type="button" > بدء الإختبار </button>
+				</div>
 
 				<!-- Sections will be dynamically added here -->
-				<!-- <div style="display: none;" id="sami"> -->
+				<div style="display: none;" id="sami">
 					<div id="form-sections"></div>
 					<button type="submit">إحسب</button>
-				<!-- </div> -->
+				</div>
 			</form>
 
 			<div id="result"></div>
@@ -39,7 +39,7 @@
 
 		</div>
 
-		<script src="script.js"></script>
+		<script src="../scripts/intelligenceTest.js"></script>
 	</body>
 
 </html>
