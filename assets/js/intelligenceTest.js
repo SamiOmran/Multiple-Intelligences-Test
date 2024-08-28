@@ -1,5 +1,5 @@
 // Load JSON file with the questions
-fetch('questions.json')
+fetch('../../static/questions.json')
 	.then((response) => response.json())
 	.then((data) => createFormSections(data))
 	.catch((error) => console.error('Error loading the JSON file:', error));
